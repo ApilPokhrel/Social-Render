@@ -1,0 +1,210 @@
+
+
+#main{
+    /*background-color:rgba(255,74,86,1);!* #f8f8f8*!*/
+    font-family: DosisBold !important;
+    /*margin-top: 42px;*/
+    /*margin-bottom: 100px;*/
+
+}
+
+
+
+
+
+#compBlock .exitfile{
+	background-color: #111111;
+    border-radius: 10px;
+    z-index: 1;
+    position: absolute;
+    border: none;
+    color: white;
+    padding: 0px 4px;
+    float: left;
+    margin-left: 174px;
+    margin-top: 2px;
+}
+
+
+#compBlock .dialog {
+
+    background: #fff;
+    border-radius: 5px;
+    z-index: 1;
+    height: 220px;
+    width: 212px;
+    margin: 29px 15px 0px 20px;
+    position: relative;
+    -webkit-box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+}
+
+
+
+#compBlock .preview{
+	width: 100%;
+}
+
+#compBlock .preview img, .preview video{
+		width: 100%;
+	margin-top: 12px;
+	border-radius: 3px;
+	max-height: 252px;
+	    overflow: auto;
+	
+}
+
+.filecont{
+    display: -webkit-inline-box;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+
+#comparisonBlock .exitfile{
+    background-color: #111111;
+    border-radius: 10px;
+    z-index: 1;
+    position: absolute;
+    border: none;
+    color: white;
+    padding: 0px 4px;
+    float: left;
+    margin-left: 174px;
+    margin-top: 2px;
+}
+
+
+#compBlock .cfile{
+	display: none !important;
+}
+
+#compBlock .inputStyle {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: white;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: DosisMedium,sans-serif !important;
+    color: black;
+    border-radius: 4px;
+}
+
+#compBlock .inputStyle:focus {
+    background-color: #F6FCB1;
+    color: black;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+#compBlock .btnLogin {
+    background-color: #B71D1D;
+    color: white;
+    padding: 11px 28px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 20px;
+    font-family: DosisExtraBold, sans-serif !important;
+    -webkit-box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    display: inline-block;
+    float: right;
+    margin-right: 30px;
+}
+
+#compBlock .btnLogin:hover {
+    opacity: 1;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#compBlock .info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+/*.comparision-container{*/
+	/*background-color: white;*/
+	 /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+/*}*/
+
+#compBlock .infoform{
+    /*	border: 2px solid gray;
+    */	padding: 30px 40px;
+    border-radius: 10px;
+    margin-top: -17px;
+    background-color: rgba(245,248,252,1); /*rgb(242, 242, 255) rgb(226, 234, 245)*/
+    -webkit-box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    margin-bottom: 46px;
+}
+
+#compBlock .allcont{
+    background:  #ffffff;
+    border-radius: 4px;
+    margin-top: 100px;
+
+}
+
+
+
+
+
+@media only screen and (max-width: 550px) {
+
+.filecont{
+    display: inline;
+}
+
+    #compBlock .preview img, .preview video{
+        width: 100%;
+        margin-top: -52px;
+        border-radius: 3px;
+        max-height: 239px;
+        overflow: auto;
+
+    }
+
+
+    #main{
+	padding: 0px !important;
+	width: 100% !important;
+
+}
+
+.container{
+	padding: 0px;
+}
+    #compBlock .info{
+	margin-bottom: 40px;
+}
+
+
+    #compBlock .allcont{
+        background: rgba(245,248,252,1) ;
+        border-radius: 0px;
+        padding: 0px;
+
+    }
+
+    #compBlock .infoform{
+        box-shadow: none;
+        padding: 25px;
+    }
+
+
+    #compBlock .dialog{
+        height: 200px;
+
+    }
+
+    #compBlock .inputStyle{
+        -webkit-box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+        box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+    }
+
+}

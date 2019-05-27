@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+<body>
+
+<nav th:replace="fragments/navbar2 :: topnav"></nav>
+<div th:replace="fragments/navbar2 :: sidenav"></div>
+
+
+<div class="container all-folio">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 allFolio" th:each="item,itrStat : ${folios}">
+    <a th:href="'/myFolio/'+${item.id}">
+    <img th:src="'https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/'+${item.folioimg}">
+    <span th:text="'*'+${item.maintag}">subtag</span>
+    <p th:text="${item.folioname}">name</p>
+    </a>
+
+</div>
+
+    <div class="createFolio">
+        <a href="/createfolio">
+            <span>Create here..</span>
+            <br>
+            <i class="far fa-heart"></i>
+        </a>
+
+    </div>
+</div>
+</div>
+
+<section th:replace="fragments/bottom :: bottom"></section>
+</body>
+
+</html>

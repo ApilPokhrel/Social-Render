@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="staticpost">
+<div  id="staticBlock" style="display: none">
+
+    <div id="statuss"></div>
+
+    <div class="dialog col-md-9 col-lg-9 col-sm-9 col-xs-11" id="sd">
+        <a class="myButton" id="imgBtn">Image</a>
+
+        <a  class="myButton" id="vidBtn" style="margin-left: 20px;">Video</a>
+        <hr>
+        <button class="close" id="closepreview">&times;</button>
+        <div id="preview">
+
+        </div>
+    </div>
+
+
+    <form action="/tag/static" enctype="multipart/form-data" method="post" th:object="${schema}" id="staticForm">
+        <input type="file" name="@file1_1[]" accept="image/*"  id="img_file" class="s_file" multiple hidden>
+        <input type="file" name="@file2_2[]" accept="video/*" id="vid_file" class="s_file" multiple hidden>
+        <div class="form-group">
+            <label for="tittle">Tittle</label>
+            <textarea type="text" name="tittle"  autocomplete="off" placeholder="your tittle goes here...." required="Please fill out" class="inputStyle" id="tittle" th:value="*{tittle}"></textarea>
+            <font size="1px" color="red"> <span th:if="${#fields.hasErrors('tittle')}" th:errors="*{tittle}"></span></font>
+        </div>
+        <div class="form-group">
+            <label>Tags</label>
+            <select class="inputStyle" name="subtag" id="tags">
+                <option>Fame</option>
+                <option>Business</option>
+                <option>Entertainment</option>
+                <option>Materials</option>
+                <option>Educational</option>
+                <option>Sports</option>
+                <option>Technology</option>
+                <option>Religious</option>
+                <option>Science</option>
+                <option>upAndLow</option>
+
+            </select>
+        </div>
+
+
+        <div class="form-group" th:object="${opinions}">
+            <label id="options">Opinions<span  class="caret"></span></label>
+            <input type="text" name="a" class="inputStyle" autocomplete="off" placeholder="eg: good looks" th:value="*{a}">
+            <font size="1px" color="red"> <span th:if="${#fields.hasErrors('a')}" th:errors="*{a}" ></span></font>
+
+            <input type="text" name="b" class="inputStyle inp" autocomplete="off" placeholder="eg: Like the camera" th:value="*{b}">
+            <font size="1px" color="red"> <span th:if="${#fields.hasErrors('b')}" th:errors="*{b}"></span></font>
+            <div style="display: none;">
+                <input type="text" name="c" class="inputStyle inp" autocomplete="off" placeholder="eg: pretier" th:value="*{c}">
+                <font size="1px" color="red"> <span th:if="${#fields.hasErrors('c')}" th:errors="*{c}"></span></font>
+
+                <input type="text" name="d" class="inputStyle inp" autocomplete="off" placeholder="eg: like outfits" th:value="*{d}">
+                <font size="1px" color="red"> <span th:if="${#fields.hasErrors('d')}" th:errors="*{d}"></span></font>
+
+                <input type="text" name="e" class="inputStyle inp" autocomplete="off" th:value="*{e}">
+                <font size="1px" color="red"> <span th:if="${#fields.hasErrors('e')}" th:errors="*{e}"></span></font>
+            </div>
+            <button type="submit" name="Give" class="btnLogin" id="postStat"><i class="fa" id="btnsubis"></i>post</button>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="col-lg-7 col-md-7 col-sm-8 col-xs-10 col-lg-offset-3 col-md-offset-3">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h3>Verify your code</h3>
+
+            </div>
+            <div class="modal-body">
+
+
+                <form action="/verification" method="post" >
+                    <input type="text" name="vcode" required class="form-control"  style="width: 40%" placeholder="veryfication Code">
+                    <br>
+                    <input type="submit" value="Confirm" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="/verification/send"><button class="btn btn-primary">SendCodeAgain</button></a>
+                <a th:href="@{'/deleteAccount/' + ${user.id}}"><button class="btn btn-primary">DeleteAccount</button></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+</body>
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</html>>

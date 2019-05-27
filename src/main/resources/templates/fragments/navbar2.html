@@ -1,0 +1,100 @@
+<nav class="mynav" th:fragment="topnav">
+    <ul class="ul1">
+        <li style="margin-top: -8px !important"> <span class="open-slider">
+    <a href="JavaScript:void(0);" onclick="openSlideMenu()">
+      <svg width="30" height="25" color="black">
+        <path d="M0,5 30,5"
+              stroke="#fff"
+              stroke-width="5"/>
+        <path d="M0,14 30,14"
+              stroke="#fff"
+              stroke-width="5"/>
+        <path d="M0,23 30,23"
+              stroke="#fff"
+              stroke-width="5"/>
+      </svg>
+    </a>
+
+
+</span></li>
+        <li class="search-li"><form  class="form-search" action="/search" >
+            <input id="search-querymy" class="searchTerm" type="text" placeholder="Search....." required="" autocomplete="off" />
+            <button class="searchBtn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+        </li>
+    </ul>
+
+    <ul class="ul2">
+        <li><a href="brokenlink.html"><i class="fa fa-home ic"></i>Home</a></li>
+        <li><a href="#brokenlink.html"><i class="fa fa-bell-o ic"></i>Notification</a></li>
+        <li class="Soccer">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-anchor ic" aria-hidden="true"></i>Tags<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <div class="Soccer-content">
+                <a href="#"><i class="fa fa-star-half-o"></i>comparision</a>
+                <a href="#"><i class="fa fa-star-o"></i>static</a>
+
+            </div>
+        </li>
+        <li class="Soccer">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-umbrella ic" aria-hidden="true"></i>Suggestion<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <div class="Soccer-content">
+                <a href="/user/suggestion"><i class="fa fa-user-plus"></i>UserSuggestion</a>
+                <a href="#"><i class="fa fa-universal-access"></i>PageSuggestion</a>
+
+            </div>
+        </li>
+        <li class="Soccer">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-user-circle ic"></i>Profile<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <div class="Soccer-content">
+                <a href="/user"><i class="fa fa-user-o"></i>MyProfile</a>
+                <a href="/logoutt"><i class="fa fa-sign-out"></i>Logout</a>
+                <a href="/PassReset"><i class="fa fa-recycle"></i>ResetPassword</a>
+                <a href="/allFolios"><i class="fa fa-briefcase"></i>Folio</a>
+            </div>
+        </li>
+
+    </ul>
+</nav>
+
+
+
+
+
+<div id="side-menu" class="side-nav" th:fragment="sidenav">
+
+    <div class="sidenav-top">
+        <a href="JavaScript:void(0);" class="btn-close" onclick="closeSideMenu()"><i class="material-icons">cancel</i></a>
+        <a href="JavaScript:void(0);" class="userinfo-side">
+            <center>
+                <img th:if="${userlist != null}" th:src="'https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/'+${userlist.image}"/>
+                <h5 th:if="${userlist != null}" th:text="${userlist.name}"></h5>
+            </center>
+        </a>
+        <a href="/logoutt" class="logoutbtn"><i class="fa fa-sign-out"></i>logout</a>
+    </div>
+    <div class="sidenav-middle">
+        <a href="/"><i class="fa fa-home"></i>Home</a>
+        <hr>
+        <a href="JavaScript:void(0);"><i class="fa fa-bell-o"></i>Notification</a>
+        <hr>
+        <a href="JavaScript:void(0);" class="setting-dd"><i class="fa fa-tags"></i>Tags<i class="fa fa-sort-desc"></i></a>
+        <div class="dropdown-settings">
+            <a href="JavaScript:void(0);"><i class="fa fa-star-half-o"></i>Comparision</a>
+            <a href="JavaScript:void(0);"><i class="fa fa-star-o"></i>Static</a>
+        </div>
+        <hr>
+        <a href="JavaScript:void(0);" class="setting-dd" id="setting-id"><i class="fa fa-gears"></i> Settings <i class="fa fa-sort-desc"></i></a>
+        <div class="dropdown-settings">
+            <a href="/PassReset"><i class="fa fa-recycle"></i>Change-Password</a>
+            <a href="JavaScript:void(0);"><i class="fa fa-lock"></i>Privacy</a>
+            <a href="JavaScript:void(0);"><i class="fa fa-question-circle-o"></i>About! Us</a>
+        </div>
+        <hr>
+        <a href="JavaScript:void(0);" class="setting-dd" ><i class="fa fa-umbrella"></i>Suggestion <i class="fa fa-sort-desc"></i></a>
+        <div class="dropdown-settings">
+            <a href="/user/suggestion"><i class="fa fa-user-plus"></i>UserSuggestion</a>
+            <a href="JavaScript:void(0);"><i class="fa fa-universal-access"></i>PageSuggestion</a>
+        </div>
+    </div>
+</div>

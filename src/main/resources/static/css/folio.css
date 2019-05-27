@@ -1,0 +1,396 @@
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+    background-color: #ffff;
+}
+
+/* Header/logo Title */
+.headerFolio {
+    padding: 0px;
+    text-align: center;
+    background: #ffffff;
+    color: white;
+    clear: both;
+}
+
+.headerFolio img{
+ width: 100%;
+    max-height: 410px;
+    align-content: center;
+
+}
+
+/* Increase the font size of the heading */
+.side p {
+    font-size: 12px;
+    font-weight: 520;
+    background-color: #333;
+    border: 3px solid #666;
+    border-radius: 3px;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-family: arial,sans-serif;
+
+}
+
+/* Style the top navigation bar */
+.navbarFolio {
+    overflow: hidden;
+    background-color: #333;
+margin-bottom: 5px;
+margin-top: -23px;
+}
+
+/* Style the navigation bar links */
+.navbarFolio a {
+   float: left;
+  	display: block;
+  	color: #F8F8F8;
+  	font-family: arial,sans-serif;
+    font-weight: 520;
+  	text-align: center;
+  	padding: 17px 27px;
+    padding-left: 30px;
+    text-decoration: none !important;
+  	font-size: 11.5px;
+  	text-decoration: none;
+  	border-bottom: 0 white solid;
+  	padding-bottom: 7.1px;
+    transition: border-bottom-width .1s linear;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+
+/* Right-aligned link */
+.navbarFolio a.right {
+    float: right;
+}
+
+/* Change color on hover */
+.navbarFolio a:hover {
+    border: white 1px;
+    color: gray;
+}
+
+/* Column container */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    -ms-flex: 1%; /* IE10 */
+    flex: 1%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+/* Main column */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    width: 60%;
+    padding: 2px;
+}
+
+
+.fakediv{
+	width: 100%;
+	position: relative;
+/*	 background-color: #333;
+*/    border: 1.5px solid #666;
+    padding-top: 15px;
+    margin-top: -16px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+
+
+
+.tooltipFolio .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 15px;
+    position: relative;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -930px;
+    opacity: 0;
+    margin-top: -200px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.tooltipFolio .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltipFolio:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.chip {
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+     width: 170px;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    background-color: #fff;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     
+
+}
+
+.closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: #000;
+}
+
+
+/*//active class*/
+.active {
+    color: gray !important;
+    border-bottom: 4px solid gray !important;
+    border-radius: 3px !important;
+}
+
+.overview{
+	background-color: #f1f1f1;
+	padding: 15px 30px;
+}
+
+.columnOver {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .columnOver {
+    width: 100%;
+    display: block;
+  }
+}
+
+.cardOver {
+/*  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+*/  padding: 20px;
+    background-color: #ffffff;
+
+}
+
+
+.cardOver img{
+    height: 240px;   
+}
+
+
+
+.containerOver {
+  padding: 0 16px;
+}
+
+.containerOver::after, .row2::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+.starheading {
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+.abot .fa {
+    font-size: 25px;
+}
+
+.starchecked {
+    color: orange;
+}
+
+
+
+.main .subtag{
+	padding: 0px;
+	margin: 1px;
+	color: brown;
+	font-size: 14px;
+
+}
+
+
+.main .title{
+	font-weight: 550;
+
+}
+
+
+.main .about .pageOfficial{
+	font-size: 25px;
+	text-align: center;
+}
+
+
+.main .about .pageinfo{
+  margin-bottom: 30px;
+  margin-left: 30px;
+  border: 1px #FFCDCD;
+}
+
+.main .about .pageinfo p{
+   background-color: gray;
+   padding: 10px 25px;
+   border-radius: 5px;
+   border-left: 4px lightblue;
+   display: inline-block;
+   font-weight: 520;
+   letter-spacing: 0.5;
+   font-size: 13px;
+   color: black;
+}
+
+.ratings{
+	margin-left: 40px;
+}
+
+
+
+
+.edit input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.edit label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.edit input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.edit input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.edit .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.edit .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.edit .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.edit .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .edit .col-25, .edit .col-75, .edit input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .edit .row {   
+        flex-direction: column;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+
+
+    .side {
+    padding-left: 20px;
+}
+}

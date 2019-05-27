@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <div class="container allcont" id="compBlock" style="display: none; margin-top: 40px; background: transparent" th:fragment="comppost">
+      
+ <span id="status"></span>
+
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 filecont" >
+
+
+
+            <div class="dialog col-md-10 col-lg-10 col-xs-10" id="cd1" >
+                <div id="preview1" class="preview"></div>
+            </div>
+
+
+
+
+            <div class="dialog col-md-10 col-lg-10 col-xs-10" id="cd2" >
+                <div id="preview2" class="preview"></div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="col-md-12 col-lg-12 col-sm-5 col-xs-12 infoform">
+            <form action="/tag/comparison" method="post" id="myCompForm" enctype="multipart/form-data" th:object="${schema}">
+                <input type="file" name="@file1_1" accept="image/*, video/*"  id="cf1" class="cfile">
+
+                <input type="file" name="@file2_2" accept="image/*, video/*"  id="cf2" class="cfile">
+                <div class="form-group">
+                    <label>Title</label>
+                    <textarea name="tittle"  placeholder="your tittle goes here...." class="inputStyle" th:value="*{tittle}" autocomplete="off"></textarea>
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('tittle')}" th:errors="*{tittle}">Contact Error</span></font>
+                </div>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <select class="inputStyle" name="subtag" id="tags">
+                        <option>Fame</option>
+                        <option>Business</option>
+                        <option>Entertainment</option>
+                        <option>Materials</option>
+                        <option>Educational</option>
+                        <option>Sports</option>
+                        <option>Technology</option>
+                        <option>Religious</option>
+                        <option>Science</option>
+                        <option>upAndLow</option>
+                        <option>Personal</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group" th:object="${opinions}">
+
+                    <label id="options">Opinions<span  class="caret"></span></label>
+                    <input type="text" name="a" autocomplete="off" class="inputStyle" placeholder="eg: which one has better looks" th:value="*{a}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('a')}" th:errors="*{a}" >Contact Error</span></font>
+
+                    <input type="text" name="b" autocomplete="off" class="inputStyle inp" placeholder="eg: which has best camera" th:value="*{b}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('b')}" th:errors="*{b}">Contact Error</span></font>
+
+                    <input type="text" name="c" autocomplete="off" class="inputStyle inp" placeholder="eg: which one is pretier" th:value="*{c}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('c')}" th:errors="*{c}">Contact Error</span></font>
+
+                    <input type="text" name="d" autocomplete="off" class="inputStyle inp" placeholder="eg: which one has best outfits" th:value="*{d}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('d')}" th:errors="*{d}">Contact Error</span></font>
+
+                    <input type="text" name="e" autocomplete="off" class="inputStyle inp" placeholder="eg: which one is your favourite" th:value="*{e}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('e')}" th:errors="*{e}">Contact Error</span></font>
+
+                    <button type="submit" name="Give" class="btnLogin" id="postComp" ><i class="fa" id="btnsubi"></i>post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
+
+</body>
+</html>

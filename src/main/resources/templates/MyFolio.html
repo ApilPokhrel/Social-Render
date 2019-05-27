@@ -1,0 +1,311 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>MyFolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/css/folio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<nav th:replace="fragments/navbar2 :: topnav"></nav>
+<div th:replace="fragments/navbar2 :: sidenav"></div>
+
+
+
+<div th:if="${myfolio != null}">
+
+<div class="headerFolio tooltipFolio">
+  <img th:src="'https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/' + ${myfolio.folioimg}" >
+    <span class="tooltiptext">Click Change Image</span>
+
+</div>
+
+<div class="navbarFolio" id="mainFolio">
+  <a href="JavaScript:void(0);" class="links active" id="overbtn">Overview</a>
+  <a href="JavaScript:void(0);" class="links" id="connbtn">Connections</a>
+  <a href="JavaScript:void(0);" class="links" id="abotbtn">AboutPage</a>
+  <a href="JavaScript:void(0);" class="right links" id="editbtn">EditPage</a>
+</div>
+
+<div class="row">
+  <div class="side">
+<img style="height: 120px; 
+width: 120px;
+margin-left: 36px;
+border:8px solid white;
+    border-radius: 50%;
+    "th:src="'https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/' + ${userlist.image}">
+    <br>   
+      <p>BuisnessTags</p>
+      <div class="fakediv" >
+        <div class="chip">
+         John Doe
+    <input type="checkbox" name="realstate" align="right"></div>
+    <div class="chip">
+         John Doe
+      <input type="checkbox" name="realstate">
+</div>
+     <div class="chip">
+         John Doe
+      <input type="checkbox" name="realstate">
+</div>
+<div class="chip">
+         John Doe
+<input type="checkbox" name="realstate"></div>
+      
+        <div class="chip">
+         John Doe
+<input type="checkbox" name="realstate"></div>
+<div class="chip">
+         John Doe
+<input type="checkbox" name="realstate"></div>
+</div>
+  </div>
+
+
+
+  <div class="main">
+
+     <div class="overview " id="over">
+
+<div class="row2">
+  <div class="columnOver">
+    <div class="cardOver">
+      <img src="img/1.jpg" alt="Jane" style="width:100%">
+      <div class="containerOver">
+                <p class="subtag">*subtag</p>
+        <p class="title">Title</p>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star"></span>      </div>
+    </div>
+  </div>
+
+  <div class="columnOver">
+    <div class="cardOver">
+      <img src="img/2.jpg" alt="Mike" style="width:100%">
+      <div class="containerOver">
+                <p class="subtag">*subtag</p>
+        <p class="title">Title</p>
+          <span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star"></span>
+      </div>
+    </div>
+  </div>
+  <div class="columnOver">
+    <div class="cardOver">
+      <img src="img/3.jpg" alt="John" style="width:100%">
+      <div class="containerOver">
+                <p class="subtag">*subtag</p>
+        <p class="title">Title</p>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star"></span>      </div>
+    </div>
+  </div>
+</div>
+
+
+
+     </div>
+
+      <div class="connection" id="conn">
+              <h1>This is connection</h1>
+
+     </div>
+
+
+      <div class="about " id="abot">
+
+<p th:if="${official}" class="pageOfficial">Official Page Of <span th:text="${myfolio.officialOf}"></span></p>
+<p th:if="${!official}" class="pageOfficial">Not an Official Page </p>
+
+<div class="pageinfo">
+  <p>Interested and Related To Buisness</p>
+  <p>Not Interested In Donation</p>
+  <p>Official Page with page email samsung@gmail.com</p>
+  <p>Doesnot Run Ads Programs in this Site</p>
+</div>
+
+<div class="ratings">
+<span class="starheading">Comparision</span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on all comparison post review.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<span class="starheading">Statics</span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star starchecked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on all statics post reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+</div>
+     </div>
+
+       <div class="edit " id="edit">
+
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Link or URL</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="url" placeholder="Your link to website" autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+       </div>
+
+  </div>
+</div>
+</div>
+
+<div th:if="${myfolio == null}" style="padding: 100px">
+Create Your Page First <a href="/createfolio">here...</a>
+</div>
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+
+</body>
+
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/common.js" type="text/javascript"></script>
+
+
+
+<script>
+// Add active class to the current button (highlight it)
+
+
+var main = document.getElementById("mainFolio");
+var btns = main.getElementsByClassName("links");
+var over = document.getElementById("over");
+var conn = document.getElementById("conn");
+var about = document.getElementById("abot");
+var edit = document.getElementById("edit");
+
+
+
+var overbtn = document.getElementById("overbtn");
+var connbtn = document.getElementById("connbtn");
+var aboutbtn = document.getElementById("abotbtn");
+var editbtn = document.getElementById("editbtn");
+
+
+ conn.style.display = 'none';
+about.style.display = 'none';
+             edit.style.display = 'none';
+
+
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    
+  });
+}
+
+
+  connbtn.addEventListener("click", function() {
+     conn.style.display = 'block';
+             over.style.display = 'none';
+             about.style.display = 'none';
+             edit.style.display = 'none';
+  });
+
+
+ overbtn.addEventListener("click", function() {
+     conn.style.display = 'none';
+             over.style.display = 'block';
+             about.style.display = 'none';
+                          edit.style.display = 'none';
+
+  });
+
+
+   aboutbtn.addEventListener("click", function() {
+     conn.style.display = 'none';
+             over.style.display = 'none';
+             about.style.display = 'block';
+                          edit.style.display = 'none';
+
+  });
+
+
+   editbtn.addEventListener("click", function() {
+     conn.style.display = 'none';
+             over.style.display = 'none';
+             about.style.display = 'none';
+                          edit.style.display = 'block';
+
+  });
+
+</script>
+</html>

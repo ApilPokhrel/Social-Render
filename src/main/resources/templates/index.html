@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/navbar2 :: topnav"></nav>
+<div th:replace="fragments/navbar2 :: sidenav"></div>
+<div id="main">
+
+
+    <div class="container-fluid">
+       <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0 offset-md-1 leftDiv"></div>
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-md-0  middle-container">
+            <div class="give_post">
+                <section>
+              
+                </section>
+
+                <section style="padding: 6px;">
+                    <button class="btnPost"><a  class="myButtonSandC" id="comparisonBtn" href="JavaScript:void(0);">ComparePost<i class="fas fa-caret-down"></i></a></button>
+                    <button class="btnPost"><a  class="myButtonSandC" id="staticBtn" href="JavaScript:void(0);">SoloPost<i class="fas fa-caret-down"></i></a></button>
+                    <span th:text="${cannot}" class="cannot"></span>
+                    
+                    <div th:replace="fragments/ComparisonPost :: comppost"></div>
+                    <div th:replace="fragments/StaticPost :: staticpost"></div>
+
+                </section>
+
+            </div>
+
+            <div id="mainDisplay" class="mcla">
+                <div id="dataDisplay"></div>
+
+            </div>
+            <button  id="loadMore">load <i class="fas fa-sync"></i></button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-0 col-xs-0 rightDiv">
+            <div th:replace="fragments/jssor-slider :: slider"></div>
+
+        </div>
+       </div>
+    </div>
+    <div id="allpost"></div>
+
+</div>
+
+
+
+
+<script type="text/template" id="data-template">
+
+    {#comp}
+
+    <div class="middle_side comparing">
+        <div class="chip">
+            <img src="https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/{userImage}" alt="Person" width="96" height="96">
+            <span>{userName}</span>
+        </div>
+
+        <div class="files">
+            {#file1img}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/comparision-summed-s3-bucket/{file1}" alt="Avatar">
+            {:else}
+            <video src="https://s3-ap-southeast-1.amazonaws.com/comparision-summed-s3-bucket/{file1}" controls ></video>
+            {/file1img}
+
+            {#file2img}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/comparision-summed-s3-bucket/{file2}" alt="Avatar">
+            {:else}
+            <video src="https://s3-ap-southeast-1.amazonaws.com/comparision-summed-s3-bucket/{file1}" controls ></video>
+            {/file2img}
+        </div>
+
+        <div class="avgratings">
+            <span class="firstlike" style="cursor: pointer"><i style="color:{like1}" onclick="hitme1('{postid}'); complike1It('{file1}', '{file2}', {f1likes}, {f2likes});" class="fas fa-grin-hearts  {like1}" id="icon_{file1}" ></i><span class="liken" id="num_{file1}">{f1likes} </span> liked</span>
+            <span class="starrating compStar" >
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+</span>
+
+            <span class="secondlike" style="cursor: pointer;"><i style="color:{like2}" onclick="hitme2('{postid}'); complike2It('{file1}', '{file2}', {f1likes}, {f2likes}); " class="fas fa-grin-hearts {like2}" id="icon_{file2}" ></i><span class="liken" id="num_{file2}">{f2likes}</span> liked</span>
+        </div>
+<hr>
+<div class="postdis">
+        <span class="posttag">*{subtag}</span>
+    <br>
+        <span class="posttitle">{title}</span>
+
+</div>
+        <hr size="1">
+        <ul class="opinions">
+            <li><p>{opinion1}</p><i  onclick="hitopnA('{o1}','{postid}');" id="opinion_{postid}_a{o1}" class="{opn1B} fa-heart heart"><span id="onum_{postid}_a{o1}" class="opnnum">{opn1Bl}</span></i><i onclick="hitopnB('{o1}','{postid}');" id="opinion_{postid}_b{o1}"  class="first {opn1A} fa-heart heart"><span id="onum_{postid}_b{o1}" class="opnnum">{opn1Al}</span></i></li>
+            <li><p>{opinion2}</p><i  onclick="hitopnA('{o2}','{postid}');" id="opinion_{postid}_a{o2}" class="{opn2B} fa-heart heart"><span id="onum_{postid}_a{o2}" class="opnnum">{opn2Bl}</span></i><i onclick="hitopnB('{o2}','{postid}');" id="opinion_{postid}_b{o2}"  class="first {opn2A} fa-heart heart"><span id="onum_{postid}_b{o2}" class="opnnum">{opn2Al}</span></i></li>
+            {#opinion3}
+            <li><p>{opinion3}</p></li>
+            {/opinion3}
+            {#opinion4}
+            <li><p>{opinion4}</p></li>
+            {/opinion4}
+            {#opinion5}
+            <li><p>{opinion5}</p></li>
+            {/opinion5}
+        </ul>
+        <hr size="20">
+    </div>
+
+
+    {:else}
+    <div class="middle_side static">
+        <div class="chip">
+            <img src="https://s3-ap-southeast-1.amazonaws.com/summed-s3-bucket/{userImage}" alt="Person" width="96" height="96">
+            <span>{userName}</span>
+        </div>
+        <div class="files">
+            {#fimg}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/statics-summed-s3-bucket/{file}">
+            {:else}
+            <video src="https://s3-ap-southeast-1.amazonaws.com/statics-summed-s3-bucket/{file}" controls ></video>
+            {/fimg}
+        </div>
+        <div class="avgratings">
+            <span class="firstlike"><i style=" color: {like}" onclick="hitme('{postid}'); staticLike('{file}', {flikes})" class="fas fa-grin-hearts " id="icon_{file}">
+                </i>
+            <font class="liken" id="num_{file}">{flikes} </font> liked</span>
+            <span class="starrating" >
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+</span>
+        </div>
+        <hr>
+        <div class="postdis">
+            <span class="posttag">*{subtag}</span>
+            <br>
+            <span class="posttitle">{title}</span>
+
+        </div>
+        <hr >
+        <ul class="opinions">
+            <li><p>{opinion1}</p><i  onclick="hitopn('{o1}','{postid}');" id="opinion_{postid}_{o1}" class="{opn1} fa-heart heart"><span id="onum_{postid}_{o1}" class="opnnum">{opn1l}</span></i></li>
+            <li><p>{opinion2}</p><i  onclick="hitopn('{o2}','{postid}');" id="opinion_{postid}_{o2}" class="{opn2} fa-heart heart"><span id="onum_{postid}_{o2}" class="opnnum">{opn1l}</span></i></li>
+            {#opinion3}
+            <li><i  onclick="hitopn('{o3}','{postid}');" id="opinion_{postid}_{o3}" class="{opn1} fa-heart"><span id="onum_{postid}_{o3}" class="opnnum">{opn1l}</span></i></li>
+            {/opinion3}
+
+            {#opinion4}
+            <li><p>{opinion4}</p><i  onclick="hitopn('{o4}','{postid}');" id="opinion_{postid}_{o4}" class="{opn1} fa-heart"><span id="onum_{postid}_{o4}" class="opnnum">{opn1l}</span></i></li>
+            {/opinion4}
+
+            {#opinion5}
+            <li><p>{opinion5}</p><i  onclick="hitopn('{o5}','{postid}');" id="opinion_{postid}_{o5}" class="{opn1} fa-heart"><span id="onum_{postid}_{o5}" class="opnnum">{opn1l}</span></i></li>
+            {/opinion5}
+
+        </ul>
+        <hr size="20">
+
+
+    </div>
+    {/comp}
+
+</script>
+
+<section th:replace="fragments/bottom :: bottom"></section>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<section th:fragment="bottom">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/axios.min.js"></script>
+    <script type="text/javascript" src="/js/dust-full.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script src="/js/common.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/comparision.js"></script>
+    <script type="text/javascript" src="/js/statics.js"></script>
+
+
+
+<script>
+
+
+        function hitopn(o, post) {
+
+            var element = document.getElementById("opinion_"+post+"_"+o);
+            var opn = document.getElementById("onum_"+post+"_"+o);
+            var opnnum = parseInt(opn.innerText);
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/api/opinionLike/'+post+'/'+o,
+
+            }).then(function(res) {
+
+console.log('update result is '+ res.data);
+                $(document).ready(function(){
+
+                    if( $("#opinion_"+post+"_"+o).hasClass("far")){
+                        element.classList.remove("far");
+                        element.classList.add("fas");
+                        opnnum = opnnum +1;
+                        opn.innerText = '';
+                        opn.innerText = opnnum;
+                    } else{
+                        element.classList.remove("fas");
+                        element.classList.add("far");
+                        opnnum = opnnum -1;
+                        opn.innerText = '';
+                        opn.innerText = opnnum;
+
+
+                    }
+                });
+
+            }).catch(function (err) {
+                console.log('error in opn like 1', err)
+            });
+
+
+
+        };
+
+
+
+
+
+
+        function hitopnA(a, post) {
+
+            var element = document.getElementById("opinion_"+post+"_a"+a);
+            var opna = document.getElementById("onum_"+post+"_a"+a);
+            var opnnuma = parseInt(opna.innerText);
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/api/opinionLikeB/'+post+'/'+a,
+
+            }).then(function(res) {
+
+
+                $(document).ready(function(){
+
+                    if( $("#opinion_"+post+"_a"+a).hasClass("far")){
+                        element.classList.remove("far");
+                        element.classList.add("fas");
+                        opnnuma = opnnuma +1;
+                        opna.innerText = '';
+                        opna.innerText = opnnuma;
+                    } else{
+                        element.classList.remove("fas");
+                        element.classList.add("far");
+                        opnnuma = opnnuma -1;
+                        opna.innerText = '';
+                        opna.innerText = opnnuma;
+
+
+                    }
+                });
+
+            }).catch(function (err) {
+                console.log('error in comparing like 1', err)
+            });
+
+
+
+        };
+
+        function hitopnB(b, post) {
+            var element = document.getElementById("opinion_"+post+"_b"+b);
+            var opnb = document.getElementById("onum_"+post+"_b"+b);
+            var opnnumb = parseInt(opnb.innerText);
+
+
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/api/opinionLikeA/'+post+'/'+b,
+
+            }).then(function(res){
+                console.log("sucess in comp 1 ", res.data);
+
+                $(document).ready(function(){
+
+                    if( $("#opinion_"+post+"_b"+b).hasClass("far")){
+                        element.classList.remove("far");
+                        element.classList.add("fas");
+                        opnnumb = opnnumb +1;
+                        opnb.innerText = '';
+                        opnb.innerText = opnnumb;
+                    } else{
+                        element.classList.remove("fas");
+                        element.classList.add("far");
+                        opnnumb = opnnumb - 1;
+                        opnb.innerText = '';
+                        opnb.innerText = opnnumb;
+
+
+                    }
+
+                });
+
+
+            }).catch(function(err){ console.log('error in comparing like 1', err)});
+
+
+        };
+
+
+
+        function hitme1(postId){
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/api/comparing_like_1/'+postId,
+
+            }).then(function(res){
+                console.log("sucess in comp 1 ", res.data);
+            }).catch(function(err){ console.log('error in comparing like 1', err)});
+        }
+
+
+
+        function hitme2(postId){
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/api/comparing_like_2/'+postId,
+
+            }).then(function(res){
+                console.log("sucess in comp 2 ", res.data);
+            }).catch(function(err){ console.log('error in comparing like 2',err)});
+        }
+
+
+
+        function hitme(postId){
+            axios({
+                method: 'put',
+                url: 'http://'+window.location.hostname+':5000/static_like/'+postId,
+
+            }).then(function(res){
+                console.log("sucess in static like ", res.data);
+            }).catch(function(err){ console.log('error in comparing like 2',err)});
+        }
+
+
+        function complike1It(like1id, like2id, num1, num2){
+
+            console.log("in comparing like 1"+ like1id);
+
+            var like1icon = document.getElementById('icon_'+like1id);
+            var like2icon = document.getElementById('icon_'+like2id);
+            var numlike1 = document.getElementById('num_'+like1id);
+            var numlike2 = document.getElementById('num_'+like2id);
+            var num11 = parseInt(numlike1.innerText);
+            var num22 = parseInt(numlike2.innerText);
+
+            if(like1icon.style.color === 'brown'){
+                console.log("liked");
+
+                like1icon.style.color = 'black';
+                num11 -= 1;
+                numlike1.innerText = num11;
+            }else{
+
+                console.log("notliked");
+
+                if(like2icon.style.color === 'brown'){
+
+                    console.log("liked2 is clicked");
+
+                    num22 -= 1;
+                    like2icon.style.color = 'black';
+                    like1icon.style.color = 'brown';
+                    num11 += 1;
+                    numlike1.innerText = num11;
+                    numlike2.innerText = num22;
+                }else{
+
+                    console.log("liked2 is not clicked");
+
+                    like1icon.style.color = 'brown';
+                    num11 += 1;
+                    numlike1.innerHTML = num11;
+                }
+            }
+
+
+        }
+
+
+
+        function complike2It(like1id, like2id, num1, num2){
+
+            console.log("in comparing like 1"+ like1id);
+
+            var like1icon = document.getElementById('icon_'+like1id);
+            var like2icon = document.getElementById('icon_'+like2id);
+            var numlike1 = document.getElementById('num_'+like1id);
+            var numlike2 = document.getElementById('num_'+like2id);
+            var num11 = parseInt(numlike1.innerText);
+            var num22 = parseInt(numlike2.innerText);
+
+            if(like2icon.style.color === 'brown'){
+                console.log("liked");
+
+                like2icon.style.color = 'black';
+                num22 -= 1;
+                numlike2.innerText = num22;
+            }else{
+
+                console.log("notliked");
+
+                if(like1icon.style.color === 'brown'){
+
+                    console.log("liked1 is clicked");
+
+                    num11 -= 1;
+                    like1icon.style.color = 'black';
+                    like2icon.style.color = 'brown';
+                    num22 += 1;
+                    numlike2.innerText = num22;
+                    numlike1.innerText = num11;
+                }else{
+
+                    console.log("liked2 is not clicked");
+
+                    like2icon.style.color = 'brown';
+                    num22 += 1;
+                    numlike2.innerHTML = num22;
+                }
+            }
+
+
+        }
+
+
+
+
+        function staticLike(likeid, num){
+            var likeicon = document.getElementById('icon_'+likeid);
+            var numlike = document.getElementById('num_'+likeid);
+            var num = parseInt(numlike.innerText);
+
+            if(likeicon.style.color === 'brown'){
+                likeicon.style.color = 'black';
+                num -= 1;
+                numlike.innerText = num;
+            }else{
+                likeicon.style.color = 'brown';
+                num += 1;
+                numlike.innerText = num;
+            }
+        }
+
+
+
+
+
+
+
+        var compBtn =  document.getElementById('comparisonBtn');
+        var compBlock = document.getElementById('compBlock');
+
+        var statBtn =  document.getElementById('staticBtn');
+        var statBlock = document.getElementById('staticBlock');
+
+        compBtn.addEventListener("click", function(){
+            if(compBlock.style.display === 'none'){
+                statBlock.style.display = 'none';
+                compBlock.style.display = 'block';
+            }else{
+                compBlock.style.display = 'none'
+            }
+        });
+
+        statBtn.addEventListener("click", function(){
+            if(statBlock.style.display === 'none'){
+                compBlock.style.display = 'none';
+                statBlock.style.display = 'block';
+            }else{
+                statBlock.style.display = 'none'
+            }
+        })
+
+        var postdiv = document.getElementById('allpost');
+
+        // postdiv.innerHTML += allPost2.toString();
+
+
+
+
+
+
+        $(document).ready(function() {
+
+            var imgfile = document.getElementById("img_file");
+            var vidfile = document.getElementById("vid_file");
+            var dialog = document.getElementById("sd");
+            var preview = document.getElementById("preview");
+
+            // bind 'myForm' and provide a simple callback function
+            $('#staticForm').ajaxForm({
+
+                beforeSend: function() {
+                    document.getElementById('postStat').disabled = true;
+                    document.getElementById('btnsubis').classList.add("fa-refresh");
+                    document.getElementById('btnsubis').classList.add("fa-spin");
+
+
+                },
+                // uploadProgress: function(event, position, total, percentComplete) {
+                //
+                // },
+                complete: function(xhr) {
+                    document.getElementById('postStat').disabled = false;
+                    document.getElementById('btnsubis').classList.remove("fa-refresh");
+                    document.getElementById('btnsubis').classList.remove("fa-spin");
+                    document.getElementById('statuss').innerText = xhr.responseText;
+
+                    if(xhr.responseText == 'posted') {
+                        imgfile.value = null;
+                        vidfile.value = null;
+                        preview.innerHTML = '';
+                    }
+
+                    alert(xhr.responseText);
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+        //static upload
+        $(document).ready(function() {
+            var preview1 = document.getElementById("preview1");
+            var preview2 = document.getElementById("preview2");
+            var finput1 = document.getElementById("cf1");
+            var finput2 = document.getElementById("cf2");
+            // bind 'myForm' and provide a simple callback function
+            $('#myCompForm').ajaxForm({
+
+                beforeSend: function() {
+                    document.getElementById('postComp').disabled = true;
+                    document.getElementById('btnsubi').classList.add("fa-refresh");
+                    document.getElementById('btnsubi').classList.add("fa-spin");
+
+
+                },
+                // uploadProgress: function(event, position, total, percentComplete) {
+                //
+                // },
+                complete: function(xhr) {
+                    document.getElementById('postComp').disabled = false;
+                    document.getElementById('btnsubi').classList.remove("fa-refresh");
+                    document.getElementById('btnsubi').classList.remove("fa-spin");
+                    document.getElementById('status').innerText = xhr.responseText;
+
+                    if(xhr.responseText == 'posted') {
+                        finput1.value = null;
+                        finput2.value = null;
+                        preview1.innerHTML = '';
+                        preview2.innerHTML = '';
+                        document.getElementsByTagName("tittle").value = '';
+                    }
+                }
+            });
+        });
+
+
+</script>
+
+</section>

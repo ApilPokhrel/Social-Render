@@ -1,0 +1,55 @@
+
+.allFolio{
+
+    background-color: white;
+    border: 2px solid tomato;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+
+
+}
+
+
+.all-folio{
+    margin-top: 100px;
+}
+.allFolio a{
+    text-decoration: none  !important;
+}
+
+.allFolio span{
+font-family: DosisMedium;
+    color: brown;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none  !important;
+
+}
+
+
+.allFolio p{
+    font-family: DosisMedium;
+    color: dimgray;
+}
+
+
+.allFolio img{
+    width: 100%;
+}
+
+.createFolio{
+    background-color: white;
+    border: 2px solid tomato;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 30px 35px;
+    color: darkslategray;
+    margin-left: 20px;
+
+}
+
+.createFolio a{
+  color: #3c3c3c;
+    text-decoration: none;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      
+      <head>
+	<title>FolioCreate</title>
+	 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="/css/common.css">
+          <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style type="text/css">
+
+* {box-sizing: border-box}
+	.folio-modal-content input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+.folio-modal-content input[type=text]:focus, .folio-modal-content input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+.createbtn {
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #555555;
+    color: white;
+
+
+}
+
+.createbtn:hover {
+    opacity:1;
+     border: 2px solid #555555;
+      background-color: white; 
+    color: black; 
+}
+
+
+.warning {
+	margin-bottom: 15px;
+    padding: 4px 12px;
+    background-color: #ffffcc;
+    border-left: 6px solid #ffeb3b;
+}
+
+/* Add padding to container elements */
+.foliocontainer {
+    padding: 16px;
+    width: 100%;
+}
+
+/* The folio-modal (background) */
+.folio-modal {
+   
+    position: fixed; /* Stay in place */
+   
+    width: 70%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ddd;
+    padding-top: 50px;
+    align-content: center;
+       left: 15%;
+    margin-top: 60px;
+    z-index: -1;
+}
+
+/* folio-modal Content/Box */
+.folio-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #fff;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+ 
+
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 500px) {
+    .folio-modal {
+    	width: 100%;
+    	left: 0;
+    }
+}
+</style>
+<body>
+	
+<nav th:replace="fragments/navbar2 :: topnav"></nav>
+<div th:replace="fragments/navbar2 :: sidenav"></div>
+
+<div id="id01" class="folio-modal" >
+<!--   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close folio-modal">&times;</span>
+ --> 
+  <form class="folio-modal-content" method="post" action="/createfolio" th:object="${folio}">
+    <div class="foliocontainer">
+      <h1>Folio Create</h1>
+      <p>Please fill in this form to create your folio.</p>
+      <span th:text="${cannot}"></span>
+      <hr>
+      <label for="folioname"><b>Name</b></label>
+      <font size="1px" color="red"> <span th:if="${#fields.hasErrors('folioname')}" th:errors="*{folioname}">Name Error</span></font>
+      <input type="text" placeholder="Enter Name" name="folioname" th:value="*{folioname}" required autocomplete="off" >
+       
+      <label for="optionalemail"><b>OptionalEmail</b></label>
+      <font size="1px" color="red"> <span th:if="${#fields.hasErrors('optionalemail')}" th:errors="*{optionalemail}">Email Error</span></font>
+      <input type="text" placeholder="Enter optional email for folio" name="optionalemail" th:value="*{optionalemail}" required>
+      
+<br>
+<div class="warning">
+  <p><strong>"Main Tag"!</strong><p>choose your tag wisley, otherwise it may create conflict in your network</p>
+</div>
+
+  <label for="maintag"><b>MainTag:</b></label>
+  <select name="maintag" required="needed" th:value="*{maintag}">
+<option>Fame</option>
+  <option>Buisness</option>
+  <option>Entertainment</option>
+  <option>Materials</option>
+  <option>Educational</option>
+  <option>Sports</option>
+  <option>Technology</option>
+  <option>Religious</option>
+  <option>Science</option>
+  <option>upAndLow</option>
+</select>    
+<font size="1px" color="red"> <span th:if="${#fields.hasErrors('maintag')}" th:errors="*{maintag}">tag Error</span></font>
+
+<br>
+<br>
+      <p>By creating an folio you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+ 
+        <button type="submit" class="createbtn">Create</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="/js/common.js"></script>
+      </html>

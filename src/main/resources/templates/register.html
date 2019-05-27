@@ -1,0 +1,127 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <style type="text/css">
+    .inputStyle {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.inputStyle:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+.btnLogin {
+    background-color: #B71D1D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btnLogin:hover {
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse upNav">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-top: -12px;">
+      <a class="navbar-brand" href="#"><button class="btn btn-danger navbar-btn">SummedUp</button></a>
+    </div>
+    <ul class="nav navbar-nav">
+     
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     <li><a href="#" style="color:white">AboutUs!</a></li>
+      <li><a href="/login" style="color:white"><span class="glyphicon glyphicon-user"></span>Login</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="col-md-4">
+      
+        <form method="POST" action="#" th:action="@{/register}"  th:object="${schema}">
+            <div class="form-group">
+                <div>
+                    <label></label>
+                    <input type="text" name="name" required placeholder="fullName" class="inputStyle"  th:value="*{name}">
+                      <font size="1px" color="red"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Contact Error</span></font>
+                  
+                </div>
+                <div>
+                    <label></label>
+                    <input type="text" name="email" placeholder="@gmail.com" class="inputStyle"  th:value="*{email}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Contact Error</span></font>
+                </div>
+                <font size="1px" color="red"><span th:text="${emailalready}"></span></font>
+                <font size="1px" color="red"><span th:text="${gmail}"></span></font>
+                <div>
+                    <label></label>
+                    <input type="text" name="contact" required placeholder="Phone No." class="inputStyle"  th:value="*{contact}">
+                    <font size="1px" color="red"> <span th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}">Contact Error</span></font>
+                </div>
+                <div>
+                <label></label>
+                <input type="date" name="birthdate" placeholder="dd/mm/yyyy" class="form-control inputStyle"   id="pl"  th:value="*{birthdate}" style="">
+                  <font size="1px" color="red"><span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">BirthDate Error</span></font>
+            </div>
+           
+                <div>
+                    <label></label>
+                    Male
+                    <input type="radio" name="gender" placeholder="birthdate"   required value="male" >
+                    Female
+                    <input type="radio" name="gender" placeholder="birthdate"  required value="female" >
+                    
+                </div>
+               <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender Error</span>
+               
+               <div>
+                <label></label>
+               <input list="professions" name="profession" required placeholder="Who are you" class="inputStyle"  th:value="*{profession}">
+           <datalist id="professions">
+           <option value="Student">
+           <option value="Teacher">
+           <option value="CEO, Founder ">
+           <option value="programmer">
+           <option value="Programmer, Designer">
+           <option value="Doctor">
+           <option value="Engineer">
+           <option value="Artist">
+           <option value="BusinessPerson">
+           </datalist>
+           </div>
+           <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Profession Error</span>
+                <div>
+                    <label></label>
+                    <input type="password" name="password" required placeholder="Password" class="inputStyle">
+                     <font size="1px" color="red"><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span></font>
+                </div>
+
+
+
+
+            <input type="submit" name="submit" value="register" class="btn btn-primary btnLogin">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</html>
